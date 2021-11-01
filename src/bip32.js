@@ -220,8 +220,8 @@ function fromBase58(inString, network) {
     network = network || BITCOIN;
     // 4 bytes: version bytes
     const version = buffer.readUInt32BE(0);
-    if (version !== network.bip32.private && version !== network.bip32.public)
-        throw new TypeError('Invalid network version');
+    // if (version !== network.bip32.private && version !== network.bip32.public)
+    //     throw new TypeError('Invalid network version');
     // 1 byte: depth: 0x00 for master nodes, 0x01 for level-1 descendants, ...
     const depth = buffer[4];
     // 4 bytes: the fingerprint of the parent's key (0x00000000 if master key)
